@@ -13,17 +13,18 @@ let success = false;
 
 // Route 1.  Create a User using POST "/api/auth/createuser". NO LOGIN REQUIRED
 
+// router.post(
+//   "/createuser",
+//   [
+//     body("fname", "Enter the First Name").isLength({ min: 5 }),
+//     body("lname", "Enter the Last Name").isLength({ min: 5 }),
+//     body("email").isEmail().withMessage("Not a valid e-mail address"),
+//     body("password", "Password must be atleast 5 characters ").isLength({
+//       min: 5,
+//     }),
+//   ],
 router.post(
-  "/createuser",
-  [
-    body("fname", "Enter the First Name").isLength({ min: 5 }),
-    body("lname", "Enter the Last Name").isLength({ min: 5 }),
-    body("email").isEmail().withMessage("Not a valid e-mail address"),
-    body("password", "Password must be atleast 5 characters ").isLength({
-      min: 5,
-    }),
-  ],
-  async (req, res) => {
+  "/createuser",async (req, res) => {
     // If there are errors , return Bad Request and the errors
 
     success = false
