@@ -113,7 +113,7 @@ router.post(
         success = false;
         return res.status(400).json({
           success: success,
-          errors: "Please Enter the correct Credentials",
+          errors: "Please try to login with  correct Credentials",
         });
       }
 
@@ -141,7 +141,7 @@ router.post("/getuser", fetchuser, async (req, res) => {
   try {
     const userId = req.user.id;
     // console.log(userId)
-    const user = await User.findById(userId);
+    const user = await User.findById(userId).select("-password");
     res.send(user);
   } catch (err) {
     console.error(err.message);
